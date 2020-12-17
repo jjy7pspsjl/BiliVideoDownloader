@@ -22,10 +22,20 @@
 ```
 
 
+## 项目来源
+
+一个字，闲；
+
+主要是太闲了，整了一个没啥用的爬虫，
+
+趁网络好的时候多下载些视频，深夜以慰寂寥。
 
 
 
 ## 思路
+
+
+
 
 **该项目整体思路如下：**
 
@@ -37,6 +47,9 @@
 - 下载完成后将文件进行合并，并删除合并之前的文件。
 - 将下载成功和下载失败的 **url** 分别进行数据持久化处理。
 
+**流程图**
+
+![](https://github.com/SunriseCai/BiliVideoDownloader/blob/main/ImagesFolderReadme/Frame.PNG)
 
 
 ---
@@ -50,7 +63,7 @@
 - 不漏爬，
 - 不重爬，
 - 多台机器一起爬(不同一片局域网)，
-- 通过读取文本形式来决定程序的启动和停止，避免资源浪费，
+- 通过读取文本形式来决定程序的启动和停止，减少资源浪费，
 - 带宽越好，下载速度越快，
 
 
@@ -114,9 +127,12 @@ pip install -r requirements.txt
 
 ## 运行截图
 
-可参考：[**B站视频** ：https://www.bilibili.com/video/BV1Wz4y1r7jj](https://www.bilibili.com/video/BV1Wz4y1r7jj)
 
-后面再插入
+本机耗时30分钟，大约下载了15GB左右的文件，具体下载速度视个人网络情况而定哦。
+
+- 以下是部分下载成功后的视频文件截图。
+
+![](https://github.com/SunriseCai/BiliVideoDownloader/blob/main/ImagesFolderReadme/Results.png)
 
 
 
