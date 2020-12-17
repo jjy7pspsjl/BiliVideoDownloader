@@ -55,25 +55,23 @@ class DownloadStreams:
             fileSize = re.findall('bytes 0-10/(\d+)', dict(resp.headers)['Content-Range'])[0]
             _type = fileName[-4:]
             fileName = fileName[:-4]
-            if int(fileSize) > 1073741824:
-                return None
             return categroy, fileSize, fileName, _type, url
 
     async def main(self, count: int = 1):
-        urls = [
-            'BV1dK411G765208',
+        # urls = [
+        #     'BV1dK411G765208',
         #     'BV1ZV411y75g208',
         #     'BV1ea4y1e7Tf208',
         #     'BV1UC4y1t7EL208',
         #     'BV1Ka4y1i7Pz208'
-        ]
+        # ]
         async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False),
                                          headers={'Connection': 'keep-alive'},
                                          trust_env=True,
                                          ) as session:
-            task_getUrl = [asyncio.create_task(self.fetch(session, UrlConfig.URL_HEAD + url)) for url in
-                           urls] if urls else await self.get_urls(session, count)
-            # task_getUrl = await self.get_urls(session, count)
+            # task_getUrl = [asyncio.create_task(self.fetch(session, UrlConfig.URL_HEAD + url)) for url in
+            #                urls] if urls else await self.get_urls(session, count)
+            task_getUrl = await self.get_urls(session, count)
             done, pending = await asyncio.wait(task_getUrl)
             #
             task_merge_streamFile = list()  # Task queue, merge_streamFile
